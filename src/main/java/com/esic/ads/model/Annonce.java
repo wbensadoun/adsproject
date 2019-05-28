@@ -1,5 +1,6 @@
 package com.esic.ads.model;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -9,6 +10,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 @Entity
 public class Annonce {
 	@Id
@@ -26,13 +32,16 @@ public class Annonce {
 	@Enumerated
 	private AnnounceType type;
 	
+	private BigDecimal prix;
+	
+	private String categories;
+	
 	@OneToMany
 	private List<Commentaires> commentaires;
 
 	public String getTitre() {
 		return titre;
 	}
-
 	public void setTitre(String titre) {
 		this.titre = titre;
 	}
@@ -79,6 +88,22 @@ public class Annonce {
 
 	public long getId() {
 		return id;
+	}
+
+	public BigDecimal getPrix() {
+		return prix;
+	}
+
+	public void setPrix(BigDecimal prix) {
+		this.prix = prix;
+	}
+
+	public String getCategories() {
+		return categories;
+	}
+
+	public void setCategories(String categories) {
+		this.categories = categories;
 	}
 
 

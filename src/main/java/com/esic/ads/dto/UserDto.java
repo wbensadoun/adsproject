@@ -1,18 +1,17 @@
 package com.esic.ads.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 public class UserDto {
 
 	private String login;
 	
 	private String email;
 	
-	@JsonIgnore
 	private String password;
 	
+	private String passwordconfirmed;
+	
 	private long id;
-
+	
 	public String getLogin() {
 		return login;
 	}
@@ -60,6 +59,14 @@ public class UserDto {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public String getPasswordconfirmed() {
+		return passwordconfirmed;
+	}
+
+	public void setPasswordconfirmed(String passwordconfirmed) {
+		this.passwordconfirmed = passwordconfirmed;
 	}
 
 }

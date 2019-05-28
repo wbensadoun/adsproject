@@ -18,6 +18,11 @@ public class UserService {
 	UserRepository userRepository;
 	
 	public UserDto createUser(UserDto userDto) {
+		
+		User userExist = userRepository.findByLogin(userDto.getLogin());
+		if(userExist != null) {
+			throw new RuntimeException("Ce login existe déjà");
+		}
 		User user = new User();
 		user.setEmail(userDto.getEmail());
 		user.setLogin(userDto.getLogin());

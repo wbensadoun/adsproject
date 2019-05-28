@@ -1,5 +1,6 @@
 package com.esic.ads.dto;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -11,15 +12,19 @@ public class AnnonceDto {
 	private String titre;
 	private String description;
 	private AnnounceType type;
+	private BigDecimal prix;
+	private String categories;
 	private long id;
 	
 	private List<CommentaireDto> commentaires;
 	
-	public AnnonceDto(long id, String titre, String description, AnnounceType type) {
+	public AnnonceDto(long id, String titre, String description, AnnounceType type, String categories,BigDecimal prix) {
 		this.id= id;
 		this.titre = titre;
 		this.description = description;
 		this.type = type;
+		this.prix = prix;
+		this.categories = categories;
 	}
 	public Date getDateCreation() {
 		return dateCreation;
@@ -62,6 +67,18 @@ public class AnnonceDto {
 	}
 	public void setCommentaires(List<CommentaireDto> commentaires) {
 		this.commentaires = commentaires;
+	}
+	public BigDecimal getPrix() {
+		return prix;
+	}
+	public void setPrix(BigDecimal prix) {
+		this.prix = prix;
+	}
+	public String getCategories() {
+		return categories;
+	}
+	public void setCategories(String categories) {
+		this.categories = categories;
 	}
 
 }
