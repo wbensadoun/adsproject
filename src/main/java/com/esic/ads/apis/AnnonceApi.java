@@ -31,6 +31,13 @@ public class AnnonceApi {
 		
 	}
 	
+	@GetMapping("/my-annonces/{login}")
+	@CrossOrigin(origins = "http://127.0.0.1:5500")
+	public List<AnnonceDto> getMyannonce(@PathVariable("login") String login){
+		return service.getMyannonce(login);
+		
+	}
+	
 	@GetMapping("/annonces/{id}")
 	@CrossOrigin(origins = "http://127.0.0.1:5500")
 	public AnnonceDto getAnnonce(@PathVariable("id") long id){
